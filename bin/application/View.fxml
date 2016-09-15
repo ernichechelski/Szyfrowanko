@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minWidth="470.0" prefHeight="227.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuButton mnemonicParsing="false" text="Plik">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#newFileButtonClicked" text="Czyść" />
+                      <MenuItem mnemonicParsing="false" onAction="#saveFileButtonClicked" text="Zapisz" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFileButtonClicked" text="Otwórz" />
+                    </items>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" onAction="#encryptButtonClicked" text="Szyfruj" />
+                  <Button mnemonicParsing="false" onAction="#decryptButtonClicked" text="Odszyfruj" />
+                  <SplitMenuButton fx:id="encryptionTypeButton" mnemonicParsing="false" text="Typ szyfrowania: AES">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#encryptionTypeAESButtonClicked" text="Klucz">
+                           <graphic>
+                              <TextField fx:id="keyTextField" onAction="#keyTypedTextField" prefWidth="150.0" text="1234567890123456" />
+                           </graphic></MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#encryptionTypeAESButtonClicked" text="Wektor">
+                           <graphic>
+                              <TextField fx:id="initVectorTextField" onAction="#vectorTypedTextField" prefWidth="150.0" text="1234567890123456" />
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                  </SplitMenuButton>
+                  <Button mnemonicParsing="false" onAction="#optionsButtonClicked" text="O programie" />
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <TextArea fx:id="mainTextArea" onInputMethodTextChanged="#textChanged" prefHeight="200.0" prefWidth="461.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
